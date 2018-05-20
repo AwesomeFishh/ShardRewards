@@ -7,6 +7,8 @@ import me.AwesomeFishh.ShardRewards.Events.Events;
 
 public class Main extends JavaPlugin {
 	
+	public String prefix = ChatColor.GOLD + "[ShardRewards]";
+	
 	public void onEnable() {
 		getServer().getPluginManager().registerEvents(new Events(), this);
 		getCommand("");

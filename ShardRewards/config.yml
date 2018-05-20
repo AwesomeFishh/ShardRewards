@@ -1,5 +1,3 @@
-// The block you break when you want to get shards (specificy block name, in uppercase)
-block: DIAMOND_ORE
+block: 56
 
-// Chance of shard dropping (in %)
 chance: 50
