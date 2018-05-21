@@ -5,6 +5,8 @@ import me.AwesomeFishh.ShardRewards.Main;
 public class ConfigManager {
 	
 	Main plugin;
+	
+	//Following line throws nullpointerexception
 	ChestConfig chestClass = plugin.chestConfig;
 	
 	public ConfigManager(Main plugin) {

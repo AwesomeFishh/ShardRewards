@@ -11,6 +11,8 @@ import me.AwesomeFishh.ShardRewards.Events.Events;
 public class Main extends JavaPlugin {
 	
 	public String prefix = ChatColor.GOLD + "[ShardRewards]";
+	
+	//Following line throws nullpointerexception
 	public ConfigManager configManager = new ConfigManager(this);
 	public ChestConfig chestConfig = new ChestConfig(this);
 	
