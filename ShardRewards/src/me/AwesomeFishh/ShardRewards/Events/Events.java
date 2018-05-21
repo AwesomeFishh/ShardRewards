@@ -21,12 +21,14 @@ import me.AwesomeFishh.ShardRewards.Configurations.ChestConfig;
 public class Events implements Listener {
 
 	Main plugin;
-	
-	ChestConfig chestCfg = plugin.chestConfig;
+	ChestConfig chestCfg;
 	
 	public Events(Main plugin) {
 		this.plugin = plugin;
+		chestCfg = plugin.chestConfig;
 	}
+	
+	
 
 	@SuppressWarnings("deprecation")
 	@EventHandler

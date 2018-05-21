@@ -1,3 +1,6 @@
 name: ShardRewards
 version: 1.0.0
 main: me.AwesomeFishh.ShardRewards.Main
+commands:
+   registerchest:
+      description: Register the chest you're looking at as a shop!

@@ -9,16 +9,17 @@ import me.AwesomeFishh.ShardRewards.Configurations.ConfigManager;
 import me.AwesomeFishh.ShardRewards.Events.Events;
 
 public class Main extends JavaPlugin {
-	
+
 	public String prefix = ChatColor.GOLD + "[ShardRewards]";
-	
-	//Following line throws nullpointerexception
-	public ConfigManager configManager = new ConfigManager(this);
-	public ChestConfig chestConfig = new ChestConfig(this);
+	public ConfigManager configManager;
+	public ChestConfig chestConfig;
 	
 	public void onEnable() {
-		getServer().getPluginManager().registerEvents(new Events(this), this);
-		getCommand("registerchests").setExecutor(new RegisterChest(this));
+
+		configManager = new ConfigManager(this);
+		chestConfig = new ChestConfig(this);
+		this.getServer().getPluginManager().registerEvents(new Events(this), this);
+		this.getCommand("registerchest").setExecutor(new RegisterChest(this));
 		configManager.setupChestFile();
 		loadConfig();
 		getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "[ShardRewards] Enabled!");

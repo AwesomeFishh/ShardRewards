@@ -14,18 +14,18 @@ import me.AwesomeFishh.ShardRewards.Configurations.ConfigManager;
 public class RegisterChest implements CommandExecutor {
 
 	Main plugin;
-	
-	ChestConfig chestConfig = plugin.chestConfig;
-	ConfigManager configManager = plugin.configManager;
+	ChestConfig chestConfig;
+	ConfigManager configManager;
 
 	public RegisterChest(Main plugin) {
 		this.plugin = plugin;
+		configManager = plugin.configManager;
+		chestConfig = plugin.chestConfig;
 	}
-	
+
 	@SuppressWarnings("deprecation")
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String s, String[] args) {
-
 		if (cmd.getName().equalsIgnoreCase("registerchest")) {
 			if (sender instanceof Player) {
 				Player player = (Player) sender;
@@ -53,6 +53,8 @@ public class RegisterChest implements CommandExecutor {
 						player.sendMessage(plugin.prefix + ChatColor.RED + " Please specificy a number for the ID!");
 					}
 				}
+			} else {
+				sender.sendMessage(plugin.prefix + ChatColor.RED + " Only players can use this command!");
 			}
 		}
 

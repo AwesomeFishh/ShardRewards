@@ -14,12 +14,12 @@ public class ChestConfig {
 
 	Main plugin;
 
-	public FileConfiguration chestcfg;
-	public File chestfile;
-	
 	public ChestConfig(Main plugin) {
 		this.plugin = plugin;
 	}
+
+	public FileConfiguration chestcfg;
+	public File chestfile;
 
 	public void createChests() {
 
@@ -32,6 +32,8 @@ public class ChestConfig {
 		if (!chestfile.exists()) {
 			try {
 				chestfile.createNewFile();
+				Bukkit.getServer().getConsoleSender()
+						.sendMessage(plugin.prefix + ChatColor.GREEN + "Chests.yml file has been created!");
 			} catch (IOException e) {
 				Bukkit.getServer().getConsoleSender()
 						.sendMessage(plugin.prefix + ChatColor.RED + "Could not create chests.yml file!");
@@ -39,8 +41,6 @@ public class ChestConfig {
 		}
 
 		chestcfg = YamlConfiguration.loadConfiguration(chestfile);
-		Bukkit.getServer().getConsoleSender()
-				.sendMessage(plugin.prefix + ChatColor.GREEN + "Chests.yml file has been created!");
 	}
 
 	public FileConfiguration getChestsCfg() {
