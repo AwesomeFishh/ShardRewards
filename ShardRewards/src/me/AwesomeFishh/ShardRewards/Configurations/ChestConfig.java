@@ -12,10 +12,14 @@ import me.AwesomeFishh.ShardRewards.Main;
 
 public class ChestConfig {
 
-	private Main plugin = Main.getPlugin(Main.class);
+	Main plugin;
 
 	public FileConfiguration chestcfg;
 	public File chestfile;
+	
+	public ChestConfig(Main plugin) {
+		this.plugin = plugin;
+	}
 
 	public void createChests() {
 

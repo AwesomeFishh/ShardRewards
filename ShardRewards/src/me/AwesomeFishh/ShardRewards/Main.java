@@ -11,12 +11,12 @@ import me.AwesomeFishh.ShardRewards.Events.Events;
 public class Main extends JavaPlugin {
 	
 	public String prefix = ChatColor.GOLD + "[ShardRewards]";
-	public ConfigManager configManager = new ConfigManager();
-	public ChestConfig chestConfig = new ChestConfig();
+	public ConfigManager configManager = new ConfigManager(this);
+	public ChestConfig chestConfig = new ChestConfig(this);
 	
 	public void onEnable() {
-		getServer().getPluginManager().registerEvents(new Events(), this);
-		getCommand("registerchests").setExecutor(new RegisterChest());
+		getServer().getPluginManager().registerEvents(new Events(this), this);
+		getCommand("registerchests").setExecutor(new RegisterChest(this));
 		configManager.setupChestFile();
 		loadConfig();
 		getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "[ShardRewards] Enabled!");

@@ -4,8 +4,12 @@ import me.AwesomeFishh.ShardRewards.Main;
 
 public class ConfigManager {
 	
-	private Main plugin = Main.getPlugin(Main.class);
+	Main plugin;
 	ChestConfig chestClass = plugin.chestConfig;
+	
+	public ConfigManager(Main plugin) {
+		this.plugin = plugin;
+	}
 	
 	public void setupChestFile() {
 		chestClass.createChests();

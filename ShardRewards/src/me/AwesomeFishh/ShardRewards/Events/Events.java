@@ -20,8 +20,13 @@ import me.AwesomeFishh.ShardRewards.Configurations.ChestConfig;
 
 public class Events implements Listener {
 
-	private Main plugin = Main.getPlugin(Main.class);
+	Main plugin;
+	
 	ChestConfig chestCfg = plugin.chestConfig;
+	
+	public Events(Main plugin) {
+		this.plugin = plugin;
+	}
 
 	@SuppressWarnings("deprecation")
 	@EventHandler

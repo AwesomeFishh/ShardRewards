@@ -13,10 +13,15 @@ import me.AwesomeFishh.ShardRewards.Configurations.ConfigManager;
 
 public class RegisterChest implements CommandExecutor {
 
-	private Main plugin = Main.getPlugin(Main.class);
+	Main plugin;
+	
 	ChestConfig chestConfig = plugin.chestConfig;
 	ConfigManager configManager = plugin.configManager;
 
+	public RegisterChest(Main plugin) {
+		this.plugin = plugin;
+	}
+	
 	@SuppressWarnings("deprecation")
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String s, String[] args) {
