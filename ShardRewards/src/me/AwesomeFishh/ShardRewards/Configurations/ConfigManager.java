@@ -8,7 +8,6 @@ public class ConfigManager {
 		chestClass.createChests();
 		chestClass.saveChestsCfg();
 		chestClass.reloadChestsCfg();
-		
 	}
 
 }

@@ -16,7 +16,7 @@ public class RegisterChest implements CommandExecutor {
 	private Main plugin = Main.getPlugin(Main.class);
 	ChestConfig chestConfig = plugin.chestConfig;
 	ConfigManager configManager = plugin.configManager;
-	
+
 	@SuppressWarnings("deprecation")
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String s, String[] args) {
@@ -24,12 +24,28 @@ public class RegisterChest implements CommandExecutor {
 		if (cmd.getName().equalsIgnoreCase("registerchest")) {
 			if (sender instanceof Player) {
 				Player player = (Player) sender;
-				if (args.length == 0) {
+				if (args.length == 1) {
 					Block block = player.getTargetBlock(null, 200);
-					if(block.getType().getId() == 54) {
-						
+					if (args[0].matches("^[0-9]*$")) {
+						int id = Integer.parseInt(args[0]);
+						if (!chestConfig.getChestsCfg().contains("chest." + id)) {
+							if (block.getType().getId() == 54) {
+								chestConfig.getChestsCfg().set("chest." + id + ".world", player.getWorld());
+								chestConfig.getChestsCfg().set("chest." + id + ".x", block.getLocation().getX());
+								chestConfig.getChestsCfg().set("chest." + id + ".y", block.getLocation().getY());
+								chestConfig.getChestsCfg().set("chest." + id + ".z", block.getLocation().getZ());
+								player.sendMessage(plugin.prefix + ChatColor.YELLOW + " Chest with id " + id
+										+ "has been successfully registered!");
+							} else {
+								player.sendMessage(plugin.prefix + ChatColor.YELLOW
+										+ " Please look at a chest while using this command!");
+							}
+						} else {
+							player.sendMessage(
+									plugin.prefix + ChatColor.YELLOW + " A chest with that ID already exists!");
+						}
 					} else {
-						player.sendMessage(plugin.prefix + ChatColor.YELLOW + " Please look at a chest while using this command!");
+						player.sendMessage(plugin.prefix + ChatColor.RED + " Please specificy a number for the ID!");
 					}
 				}
 			}

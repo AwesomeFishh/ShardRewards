@@ -28,6 +28,12 @@ public class Main extends JavaPlugin {
 	}
 	
 	public void loadConfig() {
+		getConfig().addDefault("chests.1.item", "STEAK");
+		getConfig().addDefault("chests.1.amount", 1);
+		getConfig().addDefault("chests.1.name", "&6Steak");
+		getConfig().addDefault("chests.1.command1", "/give %p minecraft:steak 1");
+		getConfig().addDefault("chests.1.command2", "/spawn %p");
+		getConfig().addDefault("chests.1.shardscost", "1");
 		getConfig().getDefaults().options().copyDefaults(true);
 		saveConfig();
 	}
